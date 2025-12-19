@@ -4,8 +4,8 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/expenseShare_db?options=-c%20TimeZone=Asia/Kathmandu
-    username: postgres
-    password: jawedhawari123
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:

@@ -21,8 +21,8 @@ public class ExpenseShareApplication {
 	public static void main(String[] args) {
 
 		Dotenv dotenv = Dotenv.load();
-//		System.setProperty("name", dotenv.get("name"));
-//		System.setProperty("MONGO_URI", dotenv.get("MONGO_URI"));
+		System.setProperty("DB_USERNAME", dotenv.get("DB_USERNAME"));
+		System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
 		TimeZone.setDefault(TimeZone.getTimeZone("Asia/Kathmandu"));
 		System.out.println("Environment variable: "+name);
 
