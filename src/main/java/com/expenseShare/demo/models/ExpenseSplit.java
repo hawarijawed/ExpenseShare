@@ -1,7 +1,9 @@
 package com.expenseShare.demo.models;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 public class ExpenseSplit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

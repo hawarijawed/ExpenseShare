@@ -12,7 +12,7 @@ public class Balance {
     private Long balanceId;
 
     @ManyToOne
-    @JoinColumn(name = "group")
+    @JoinColumn(name = "group_id")
     private Groups groups;
 
     @ManyToOne

@@ -2,6 +2,9 @@ package com.expenseShare.demo.controllers;
 
 import com.expenseShare.demo.dtos.GroupDTO.AddMemberDTO;
 import com.expenseShare.demo.dtos.GroupDTO.CreateGroupDTO;
+import com.expenseShare.demo.dtos.GroupDTO.groupMemberDTO;
+import com.expenseShare.demo.dtos.GroupDTO.viewGroupDTO;
+import com.expenseShare.demo.models.Groups;
 import com.expenseShare.demo.models.Users;
 import com.expenseShare.demo.services.GroupServices;
 import org.springframework.http.ResponseEntity;
@@ -33,9 +36,15 @@ public class GroupControllers {
     }
 
     @GetMapping("/{groupId}/members")
-    public ResponseEntity<List<Users>> getMembers(@PathVariable Long groupId){
-        List<Users> users = groupServices.getGroupMembers(groupId);
+    public ResponseEntity<List<groupMemberDTO>> getMembers(@PathVariable Long groupId){
+        List<groupMemberDTO> users = groupServices.getGroupMembers(groupId);
 
         return ResponseEntity.ok(users);
+    }
+
+    @GetMapping("/view")
+    public ResponseEntity<List<viewGroupDTO>> viewGroup(){
+        List<viewGroupDTO> groups = groupServices.viewGroup();
+        return ResponseEntity.ok(groups);
     }
 }

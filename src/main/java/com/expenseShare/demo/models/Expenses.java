@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "expense")
@@ -13,17 +15,19 @@ public class Expenses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long expenseId;
     @ManyToOne
-    @JoinColumn(name = "group")
+    @JoinColumn(name = "group_id")
     private Groups groups;
 
     @ManyToOne
     @JoinColumn(name = "paid_by")
-    private Users user;
+    private Users paidBy;
 
     @Enumerated(EnumType.STRING)
     private SplitType splitType;
     private Double totalAmount;
-
+    private String description;
+    @OneToMany(mappedBy = "expenses", cascade = CascadeType.ALL)
+    private List<ExpenseSplit> splits = new ArrayList<>();
     private LocalDateTime createdAt = LocalDateTime.now();
 
 }
