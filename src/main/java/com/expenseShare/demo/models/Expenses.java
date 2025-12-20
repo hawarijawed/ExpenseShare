@@ -26,7 +26,7 @@ public class Expenses {
     private SplitType splitType;
     private Double totalAmount;
     private String description;
-    @OneToMany(mappedBy = "expenses", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL)
     private List<ExpenseSplit> splits = new ArrayList<>();
     private LocalDateTime createdAt = LocalDateTime.now();
 

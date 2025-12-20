@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ExpenseRepository extends JpaRepository<Expenses, Long> {
-    List<Expenses> findByGroup_GroupId(Long groupId);
+    List<Expenses> findByGroups_GroupId(Long groupId);
 }

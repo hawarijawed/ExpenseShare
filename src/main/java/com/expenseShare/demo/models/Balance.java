@@ -23,5 +23,5 @@ public class Balance {
     @JoinColumn(name = "paid_to")
     private Users paidTo;
 
-    private Double paidAmount;
+    private double AmountToPay=0.0;
 }

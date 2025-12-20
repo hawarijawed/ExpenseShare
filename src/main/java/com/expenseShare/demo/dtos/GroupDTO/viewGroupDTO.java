@@ -5,6 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 @Data
 public class viewGroupDTO {
+    private Long groupId;
     private String groupName;
     private String createdBy;
     private String description;

@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class groupMemberDTO {
+    private Long userId;
     private String fullName;
     private String email;
 }

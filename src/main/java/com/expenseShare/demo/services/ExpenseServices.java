@@ -7,6 +7,7 @@ import com.expenseShare.demo.repositories.ExpenseRepository;
 import com.expenseShare.demo.repositories.GroupRepository;
 import com.expenseShare.demo.repositories.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +17,18 @@ public class ExpenseServices {
     private final ExpenseRepository expenseRepository;
     private final UserRepository userRepository;
     private final GroupRepository groupRepository;
-
+    private final BalanceService balanceService;
     public ExpenseServices(ExpenseRepository expenseRepository,
                            UserRepository userRepository,
-                           GroupRepository groupRepository){
+                           GroupRepository groupRepository,
+                           BalanceService balanceService){
         this.expenseRepository = expenseRepository;
         this.userRepository = userRepository;
         this.groupRepository = groupRepository;
+        this.balanceService = balanceService;
     }
 
+    @Transactional
     public String addExpense(CreateExpenseDTO dto){
         Groups groups = groupRepository.findById(dto.getGroupId()).orElse(null);
         if(groups == null){
@@ -78,7 +82,7 @@ public class ExpenseServices {
         }
         expenses.setSplits(splits);
         expenseRepository.save(expenses);
-
+        balanceService.calculateBalanceForExpense(expenses);
         return "Expense added successfully";
     }
 

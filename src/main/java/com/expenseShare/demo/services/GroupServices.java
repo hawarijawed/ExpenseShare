@@ -81,6 +81,7 @@ public class GroupServices {
         List<viewGroupDTO> viewGroupDTOS = new ArrayList<>();
         for(Groups groups1: groups){
             viewGroupDTO grp = new viewGroupDTO();
+            grp.setGroupId(groups1.getGroupId());
             grp.setGroupName(groups1.getGroupName());
             grp.setCreatedBy(groups1.getCreatedBy().getFullName());
             grp.setDescription(groups1.getDescription()==null?null:groups1.getDescription());
@@ -98,6 +99,7 @@ public class GroupServices {
         List<groupMemberDTO> memberList = new ArrayList<>();
         for(GroupMembers gm: groupMembers){
             groupMemberDTO mm = new groupMemberDTO();
+            mm.setUserId(gm.getUser().getId());
             mm.setFullName(gm.getUser().getFullName());
             mm.setEmail(gm.getUser().getEmail());
             memberList.add(mm);

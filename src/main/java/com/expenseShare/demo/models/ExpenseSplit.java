@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "expense_split")
 public class ExpenseSplit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
