@@ -12,15 +12,15 @@ public class Balance {
     private Long balanceId;
 
     @ManyToOne
-    @Column(name = "group")
+    @JoinColumn(name = "group")
     private Groups groups;
 
     @ManyToOne
-    @Column(name = "paid_by")
+    @JoinColumn(name = "paid_by")
     private Users paidBy;
 
     @ManyToOne
-    @Column(name = "paid_to")
+    @JoinColumn(name = "paid_to")
     private Users paidTo;
 
     private Double paidAmount;

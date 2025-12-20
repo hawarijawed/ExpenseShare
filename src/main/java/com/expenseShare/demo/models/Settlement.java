@@ -14,11 +14,14 @@ public class Settlement {
     private Long settlementId;
 
     @ManyToOne
-    @Column(name = "paidByUser")
+    @JoinColumn(name = "group_id")
+    private Groups groups;
+    @ManyToOne
+    @JoinColumn(name = "paidByUser")
     private Users paidByUser;
 
     @ManyToOne
-    @Column(name = "paidToUser")
+    @JoinColumn(name = "paidToUser")
     private Users paidToUser;
 
     private Double amount;

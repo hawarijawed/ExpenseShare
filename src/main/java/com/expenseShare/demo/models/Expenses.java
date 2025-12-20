@@ -13,11 +13,11 @@ public class Expenses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long expenseId;
     @ManyToOne
-    @Column(name = "group")
+    @JoinColumn(name = "group")
     private Groups groups;
 
     @ManyToOne
-    @Column(name = "paid_by")
+    @JoinColumn(name = "paid_by")
     private Users user;
 
     @Enumerated(EnumType.STRING)

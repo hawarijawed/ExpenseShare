@@ -14,11 +14,11 @@ public class GroupMembers {
     private Long memberId;
 
     @ManyToOne
-    @Column(name = "group_id")
-    private Groups group;
+    @JoinColumn(name = "group_id")
+    private Groups groups;
 
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private Users user;
 
     private LocalDateTime createdAt = LocalDateTime.now();

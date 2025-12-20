@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "groups")
@@ -11,13 +13,14 @@ import java.time.LocalDateTime;
 public class Groups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long groupId;
     @Column(nullable = false, unique = true)
     private String groupName;
     private String description;
     @ManyToOne
     @JoinColumn(name = "created_by")
     private Users createdBy;
+
 
     private LocalDateTime createdAt = LocalDateTime.now();
 }
