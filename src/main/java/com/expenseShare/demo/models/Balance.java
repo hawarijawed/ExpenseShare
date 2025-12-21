@@ -24,4 +24,6 @@ public class Balance {
     private Users paidTo;
 
     private double AmountToPay=0.0;
+
+    //private boolean isSettled;
 }

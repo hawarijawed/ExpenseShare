@@ -14,4 +14,5 @@ public class CreateExpenseDTO {
     private SplitType splitType;
     private String description;
     private List<SplitDTO> splits;
+    private String idempotencyKey;
 }

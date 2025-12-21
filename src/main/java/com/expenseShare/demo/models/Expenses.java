@@ -1,5 +1,6 @@
 package com.expenseShare.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,8 +27,12 @@ public class Expenses {
     private SplitType splitType;
     private Double totalAmount;
     private String description;
-    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<ExpenseSplit> splits = new ArrayList<>();
+
+    @Column(name = "idempotency_key", nullable = false, unique = true)
+    private String idempotencyKey;
     private LocalDateTime createdAt = LocalDateTime.now();
 
 }

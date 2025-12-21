@@ -24,7 +24,7 @@ public class Settlement {
     @JoinColumn(name = "paidToUser")
     private Users paidToUser;
 
-    private Double amount;
+    private double amount;
 
     private LocalDateTime createdAt = LocalDateTime.now();
 }
